@@ -1,0 +1,205 @@
+/* Trips.css — centered hero + stats + card overlay + builder (pill tabs) */
+
+:root{
+  --cream:#fff8e7;
+  --bg:#fffaf0;
+  --ink:#0d1f1b;
+  --muted:#2a4e47;
+  --chip:#f3f7f6;
+  --chip-border:rgba(0,0,0,0.08);
+  --accent1:#40E0D0;
+  --accent2:#FFA62B;
+  --ink-strong:#0a332e;
+}
+
+*{ box-sizing:border-box; }
+.container{ max-width:1180px; margin:0 auto; padding:0 20px; }
+
+/* ---------- Page root ---------- */
+.trips-root{
+  background: linear-gradient(180deg, var(--cream), #fff);
+  min-height:100vh; color:var(--ink);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  padding-bottom: 40px;
+}
+
+/* ---------- Hero ---------- */
+.trips-hero{ padding-top:28px; padding-bottom:12px; text-align:center; }
+.trips-hero .hero-heading h1{
+  margin:0; font-size:clamp(28px,4.2vw,44px); font-weight:900; letter-spacing:-0.2px;
+  background: linear-gradient(90deg, #0d302a, #174e44);
+  -webkit-background-clip:text; color:transparent;
+}
+.trips-hero .hero-heading p{ margin:8px 0 0; color:#355d56; font-weight:600; }
+
+.hero-controls{ margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+.search-input{
+  width:min(560px,100%); padding:12px 14px; border-radius:12px;
+  border:1px solid rgba(0,0,0,0.08); background:#fff; font-weight:700; color:var(--ink);
+}
+.hero-buttons{ display:flex; gap:8px; align-items:center; }
+.btn-ghost{
+  background:#fff; border:1px solid rgba(0,0,0,0.1); padding:10px 14px; border-radius:12px; font-weight:800; cursor:pointer;
+}
+/* minimal + Create Trip */
+.btn-minimal{
+  background:#111010; border:1px solid rgba(0,0,0,0.12);
+  padding:10px 12px; border-radius:12px; font-weight:900; cursor:pointer; display:flex; align-items:center; gap:6px;
+}
+
+/* ---------- Stats ---------- */
+.stats-bar{
+  margin-top:18px; display:grid; grid-template-columns: repeat(3, minmax(180px, 1fr)); gap:12px; justify-items:center;
+}
+.stat-card{
+  display:flex; gap:10px; align-items:center; background:#fff; border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 8px 26px rgba(0,0,0,0.06); padding:10px 14px; border-radius:12px; width:100%; max-width:320px;
+}
+.stat-card .icon{ font-size:18px; }
+.stat-number{ font-weight:900; font-size:18px; line-height:1; }
+.stat-label{ font-size:12px; color:#517c73; font-weight:800; }
+
+/* ---------- Grid ---------- */
+.main-grid{ display:grid; grid-template-columns: 1fr 360px; gap:18px; align-items:start; margin-top:18px; }
+@media (max-width:980px){ .main-grid{ grid-template-columns:1fr; } }
+
+/* ---------- List & Cards ---------- */
+.list-panel{ padding-bottom:10px; }
+.trip-card{
+  background:#fff; border:1px solid rgba(0,0,0,0.08); border-radius:14px; overflow:hidden; margin-bottom:14px;
+  box-shadow:0 14px 36px rgba(0,0,0,0.06);
+}
+.card-media{ position:relative; }
+.card-img{ width:100%; height:180px; object-fit:cover; filter:saturate(1.02) contrast(1.02); display:block; }
+.title-overlay{
+  position:absolute; left:0; right:0; bottom:0; padding:12px 14px; display:flex; flex-direction:column; gap:4px; color:#fff;
+  background: linear-gradient(180deg, rgba(2,10,10,0) 0%, rgba(2,10,10,0.55) 55%, rgba(2,10,10,0.8) 100%);
+  backdrop-filter: blur(2px);
+}
+.trip-title{ margin:0; font-size:18px; font-weight:900; text-shadow:0 8px 22px rgba(0,0,0,0.45); }
+.trip-sub{ font-size:12px; font-weight:800; opacity:0.95; }
+
+.card-body{ padding:12px 14px 14px; }
+.pill-row{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:10px; }
+
+.chip{ padding:6px 10px; border-radius:999px; background:var(--chip); border:1px solid var(--chip-border); font-weight:800; font-size:12px; color:#204e45; }
+.chip-soft{ background:#f9fbfb; }
+.chip-info{ background:#eefcf7; border-color: rgba(64,224,208,0.25); }
+.chip-link{ background:#fff; cursor:pointer; }
+.chip-link:hover{ box-shadow:0 10px 24px rgba(0,0,0,0.06); }
+
+.price-row{ display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; border-top:1px dashed rgba(0,0,0,0.08); padding-top:10px; }
+.price{ font-weight:900; font-size:18px; color:#0a332e; }
+
+/* Buttons */
+.btn-primary{
+  background: linear-gradient(90deg, var(--accent1), var(--accent2)); color:#01221c; border:none; padding:8px 12px; border-radius:10px; font-weight:900; cursor:pointer;
+}
+.btn-outline{
+  background:#fffdfd; border:1px solid rgba(0,0,0,0.1); padding:8px 12px; border-radius:10px; font-weight:800; cursor:pointer;
+}
+/* VISIBILITY FIX: Add to Calendar ink color (dark, readable) */
+.btn-outline.ink{ color: var(--ink-strong); }
+
+.btn-ghost{
+  background:#0a0a0a; border:1px solid rgba(0,0,0,0.1); padding:8px 12px; border-radius:10px; font-weight:800; cursor:pointer;
+}
+.btn-link{ background:transparent; border:none; color:#1a6b5c; font-weight:800; cursor:pointer; padding:0; }
+
+.fav{ background:#fff; border:1px solid rgba(0,0,0,0.1); padding:8px 10px; border-radius:10px; display:inline-flex; align-items:center; cursor:pointer; }
+.fav.on{ background: linear-gradient(90deg, var(--accent1), var(--accent2)); color:#01221c; border:none; }
+
+/* itinerary */
+.itinerary-mini{ margin-top:8px; }
+.mini-day{ font-size:13px; padding:6px 0; border-bottom:1px dashed rgba(0,0,0,0.06); }
+.itinerary-full{ margin-top:10px; background:#fff; border:1px solid rgba(0,0,0,0.06); border-radius:10px; }
+.full-day{ display:flex; justify-content:space-between; padding:8px 10px; border-bottom:1px solid rgba(0,0,0,0.04); }
+.full-day:last-child{ border-bottom:0; }
+
+.location-row{ margin-top:10px; display:flex; justify-content:flex-end; }
+.muted{ color:#587d75; font-weight:700; font-size:12px; }
+
+/* empty */
+.empty-state{ background:#fff; border:1px dashed rgba(0,0,0,0.1); border-radius:12px; padding:18px; text-align:center; color:#557871; font-weight:800; }
+
+/* right rail */
+.right-rail{ display:flex; flex-direction:column; gap:12px; position:sticky; top:22px; }
+.rail-card{ background:#fff; border:1px solid rgba(0,0,0,0.08); border-radius:12px; padding:12px; box-shadow:0 10px 28px rgba(0,0,0,0.06); }
+.rail-card h4{ margin:0 0 8px; font-size:14px; font-weight:900; color:#0a332e; }
+.map-panel{ border-radius:10px; overflow:hidden; }
+.tips{ margin:0; padding-left:18px; color:#3a655d; font-weight:700; }
+.tips li{ margin:6px 0; }
+
+/* responsive */
+@media (max-width:720px){
+  .card-img{ height:160px; }
+  .actions{ width:100%; justify-content:flex-start; }
+}
+
+/* =========================================================
+   Trip Builder (Full Screen) — pill tabs
+========================================================= */
+.tb-backdrop{
+  position: fixed; inset:0; background: rgba(4,10,12,0.58); backdrop-filter: blur(3px) saturate(1.1);
+  display:flex; align-items:center; justify-content:center; z-index:4000; padding: 20px;
+}
+.tb-shell{
+  width: min(980px, 96%); max-height: 90vh; overflow:auto;
+  background:#fff; border:1px solid rgba(0,0,0,0.08); border-radius:16px; box-shadow:0 30px 90px rgba(0,0,0,0.35);
+}
+
+/* top bar */
+.tb-top{ display:flex; align-items:center; justify-content:space-between; padding:12px 14px; position: sticky; top:0; background:#fff; z-index:2; border-bottom:1px solid rgba(0,0,0,0.06); }
+.tb-title{ font-weight:900; color:var(--ink-strong); }
+.tb-link{ background:#111010; border:1px solid rgba(0,0,0,0.12); border-radius:10px; padding:8px 12px; font-weight:800; cursor:pointer; }
+.tb-primary{ background: linear-gradient(90deg, var(--accent1), var(--accent2)); color:#01221c; border:none; border-radius:10px; padding:8px 12px; font-weight:900; cursor:pointer; }
+
+/* pill tabs */
+.tb-tabs{ display:flex; gap:8px; padding:10px 14px; border-bottom:1px solid rgba(0,0,0,0.06); position: sticky; top:48px; background:#fff; z-index:2; flex-wrap:wrap; }
+.tb-tab{
+  background:#f7faf9; border:1px solid rgba(0,0,0,0.08); color:#0c3b34; font-weight:900;
+  border-radius:999px; padding:8px 12px; cursor:pointer; display:flex; align-items:center; gap:6px;
+}
+.tb-tab.active{
+  background: linear-gradient(90deg, var(--accent1), var(--accent2)); color:#01221c; border:none;
+}
+.tb-body{ padding: 14px; }
+.tb-panel{ background:#fff; border:1px solid rgba(0,0,0,0.06); border-radius:12px; padding:14px; }
+
+/* form bits */
+.field{ display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
+.field label{ font-weight:800; color:#0c3b34; font-size:13px; }
+.field input, .field select, .tb-panel textarea{
+  background:#fff; border:1px solid rgba(0,0,0,0.12); border-radius:10px;
+  padding:10px 12px; color:#0d1f1b; font-weight:700; outline:none;
+}
+.readonly{ background:#f9fbfb; border:1px dashed rgba(0,0,0,0.12); border-radius:10px; padding:10px 12px; font-weight:800; color:#0c3b34; }
+
+.row{ display:flex; align-items:center; gap:8px; }
+.grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+@media (max-width:720px){ .grid2, .grid3{ grid-template-columns:1fr; } }
+
+/* days */
+.days-list{ display:flex; flex-direction:column; gap:8px; margin-bottom:10px; }
+.day-row{ display:grid; grid-template-columns: 92px 1fr auto; gap:8px; align-items:center; }
+.bubble{ background:#0e0e0e; border:1px solid rgba(64,224,208,0.25); color:#0b3a33; font-weight:900; padding:8px 10px; border-radius:10px; text-align:center; }
+
+/* chips / packing */
+.chips{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.chips .chip{ position:relative; }
+.chips .chip .x{ background:transparent; border:none; margin-left:6px; font-weight:900; cursor:pointer; }
+
+/* totals */
+.total-box{
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f9fbfb;
+  border: 1px dashed rgba(0,0,0,0.12);
+  font-weight: 900;
+  color: #0b3a33;
+}
+
+/* misc buttons */
+.btn-ghost.small{ padding:6px 8px; border-radius:10px; border:1px solid rgba(0,0,0,0.12); background:#fff; font-weight:800; cursor:pointer; }
