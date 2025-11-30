@@ -1,0 +1,27 @@
+# ==========================
+# STAGE 1 — Build JAR
+# ==========================
+FROM maven:3.9.6-eclipse-temurin-21 AS build
+WORKDIR /app
+
+# Install git
+RUN apt-get update && apt-get install -y git
+
+# Clone ONLY BACKEND REPO
+RUN git clone https://github.com/Bhavya33060/TravelForge-be .
+
+# Build JAR
+RUN mvn clean package -DskipTests
+
+
+# ==========================
+# STAGE 2 — Run Spring Boot
+# ==========================
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+
+COPY --from=build /app/target/*.jar app.jar
+
+EXPOSE 8084
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
